@@ -2,6 +2,7 @@ import os
 import google.generativeai as genai
 from google.ai.generativelanguage_v1beta.types import content
 from flask import Flask, request
+from flask_cors import CORS
 import random, string
 from dataclasses import dataclass
 from typing import Literal
@@ -18,6 +19,7 @@ MOVIMENTOS = [
 PAGINAS = ["pgConta", "pgConta2", "pgContaAuto", "nvLig", "rmLig", "mudVenc"]
 
 app = Flask(__name__)
+CORS(app)
 
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
@@ -151,3 +153,7 @@ def send_message():
         content=f"Atendente: {message}\nCliente: {str(clientes[id_cliente])}"
     )
     return response.text
+
+
+if __name__ == "__main__":
+    app.run()
