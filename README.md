@@ -10,7 +10,7 @@ flask --app assistente_copel run
 
 ## Métodos
 
-`/new_session` (GET)
+`/new_session` (POST)
 entradas (via form data):
 `id_cliente`: string
 saída:

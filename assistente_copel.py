@@ -121,7 +121,7 @@ clientes: dict[str, InfoCliente] = {
 chats: dict[str, tuple[genai.ChatSession, str]] = {}
 
 
-@app.route("/new_session", methods=["GET"])
+@app.route("/new_session", methods=["POST"])
 def new_session():
     id_cliente = request.form["id_cliente"]
     if id_cliente not in clientes.keys():
