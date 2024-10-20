@@ -148,7 +148,7 @@ def send_message():
         for sugestao in response["paginasSugeridas"]:
             response["resposta"] += f"{sugestao}, "
         response["resposta"].rstrip(", ")
-    return response.text
+    return json.dumps(response)
 
 
 if __name__ == "__main__":
